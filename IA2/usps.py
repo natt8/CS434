@@ -21,6 +21,7 @@ def batch_gradient_descent(data, y, w):
 	errors = 0
 	yHat = 0
 	x = 0
+	max_exponent = 0;
 	errorList = []	
 	dOld = np.zeros((len(data[0]),1))
 	while (convergence != True):
@@ -40,6 +41,19 @@ def batch_gradient_descent(data, y, w):
 
 		if(np.linalg.norm((dNew - dOld), 'fro') < .01 or x > 100000):
 			convergence = True;	
+			exponent = (-1*(w)) * (data[i-1].T)
+			yHat = 1/(1+ math.exp(exponent))
+
+			errors = y[i] - yHat
+			#print "errors"
+
+			errorList.append(errors)		
+			d = d + (errors.item(0) * data[i])
+
+		w = w + (learningRate * d) 
+
+		if(x < 10):#w < error):
+			#convergence = True;	
 			x = x + 1
 			
 		else:
@@ -72,30 +86,6 @@ def get_train_data():
 dataNo, data, y = get_train_data()
 w = matrix(np.zeros(256))
 
-#print "w"
-#print w
-#print "len y"
-#print len(y)
-
-#print y
-
-#print "len data"
-#print len(data)
-#print "len data 0"
-#print len(data[0])
-
-#print "len w"
-#print len(w)
-
-#print "data 0"
-#print data[0]
-
-#print y.shape
-#print w.shape
-#print data.shape
-#for i in range(0, len(data), 10): 
-#	dataBatch = data[[i, i+9],]
-#	yBatch = y[[i, i+9],]
 d = batch_gradient_descent(data, y, w)	
 print d
 print w
