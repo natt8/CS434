@@ -17,40 +17,33 @@ def column(dataset, i):
 
 def batch_gradient_descent(data, y, w):
 	convergence = False
-	learningRate = .000001
+	learningRate = .0000001
 	errors = 0
 	yHat = 0
 	x = 0
 	errorList = []	
+	dOld = np.zeros((len(data[0]),1))
 	while (convergence != True):
-		d = np.zeros((len(data[0]),1))
+		print w
+		print data[x]
+		dNew = np.zeros((len(data[0]),1))
 		dataT = data.T
 		print "----------------------------------------------"
-		for i in range(1, 1400):
+		for i in range(1, len(data)):
 			print "i ", i
-			print "w shape"
-			print (w).shape
-			print "y"
-			print y.shape
-			print data[i-1].shape
 			yHat = 1 / (1 + math.exp(((-1 *(w)) * data[i-1].T)))
-			print yHat	
 			errors = y[i] - yHat
-			print "errors"
 
-			#print errors[0]
-			#print errors[0].shape
 			errorList.append(errors)		
-			d = d + (errors.item(0) * data[i])
-			print "d shape"
-			print d.shape
-		w = w + (learningRate * d) 
-		if(x < 10):#w < error):
-			#convergence = True;	
+			dNew = dNew + (errors.item(0) * data[i])
+		w = w + (learningRate * dNew)
+
+		if(np.linalg.norm((dNew - dOld), 'fro') < .01 or x > 100000):
+			convergence = True;	
 			x = x + 1
+			
 		else:
-			convergence = True		
-		#print "d"
+			dOld = dNew;
 		#print d
 	return d
 
@@ -100,10 +93,10 @@ w = matrix(np.zeros(256))
 #print y.shape
 #print w.shape
 #print data.shape
-for i in range(0, len(data), 10): 
-	dataBatch = data[[i, i+9],]
-	yBatch = y[[i, i+9],]
-	d = batch_gradient_descent(data, y, w)	
-	print d
+#for i in range(0, len(data), 10): 
+#	dataBatch = data[[i, i+9],]
+#	yBatch = y[[i, i+9],]
+d = batch_gradient_descent(data, y, w)	
+print d
 print w
 print d
