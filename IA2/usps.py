@@ -22,44 +22,64 @@ def batch_gradient_descent(data, y, w):
 	yHat = 0
 	x = 0
 	max_exponent = 0;
-	errorList = []	
+	iterations = []
+	avErrorList = []
 	dOld = np.zeros((len(data[0]),1))
 	while (convergence != True):
-		print w
-		print data[x]
+		errorList = []
+		#print w
+		#print data[x]
 		dNew = np.zeros((len(data[0]),1))
 		dataT = data.T
 		print "----------------------------------------------"
 		for i in range(1, len(data)):
-			print "i ", i
-			yHat = 1 / (1 + math.exp(((-1 *(w)) * data[i-1].T)))
+		#	print "i ", i
+			exponent = (-1*(w)) * (data[i-1].T)
+			yHat = 1/(1+ math.exp(exponent))
 			errors = y[i] - yHat
 
 			errorList.append(errors)		
 			dNew = dNew + (errors.item(0) * data[i])
 		w = w + (learningRate * dNew)
 
-		if(np.linalg.norm((dNew - dOld), 'fro') < .01 or x > 100000):
+		sumError = sum(errorList)
+		avError = sumError / len(y)
+		print "%Error" , avError
+		avErrorList.append(avError)
+		iterations.append(x)	
+
+		if(np.linalg.norm((dNew - dOld), 'fro') < 1 or x > 100):
 			convergence = True;	
-			exponent = (-1*(w)) * (data[i-1].T)
-			yHat = 1/(1+ math.exp(exponent))
-
-			errors = y[i] - yHat
-			#print "errors"
-
-			errorList.append(errors)		
-			d = d + (errors.item(0) * data[i])
-
-		w = w + (learningRate * d) 
-
-		if(x < 10):#w < error):
-			#convergence = True;	
-			x = x + 1
-			
 		else:
+			print np.linalg.norm((dNew - dOld), 'fro')
+			print x
 			dOld = dNew;
-		#print d
-	return d
+			x = x + 1
+
+	return iterations, avErrorList
+
+def graph_error_over_iterations(iterations, avErrorList, source):
+	#print iterations
+	#print avError
+		
+
+	it = np.array(iterations)
+	err = np.array(avErrorList)
+	err.shape = it.shape
+
+
+
+	print it.shape
+	print err.shape	
+	plt.figure(1)
+	if(source == 0):
+		plt.plot(it, err, 'r', label='test')
+	else:
+		plt.plot(it, err, 'b', label='train')
+	plt.xlabel('iterations')
+	plt.ylabel('Average error %')
+	plt.savefig('gradientDescentImprovement.png')
+
 
 def get_train_data():
 #	reader = open("usps-4-9-train.csv", "rb")
@@ -86,7 +106,5 @@ def get_train_data():
 dataNo, data, y = get_train_data()
 w = matrix(np.zeros(256))
 
-d = batch_gradient_descent(data, y, w)	
-print d
-print w
-print d
+iterations, avError = batch_gradient_descent(data, y, w)	
+graph_error_over_iterations(iterations, avError, 0)
