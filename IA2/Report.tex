@@ -1,0 +1,81 @@
+\documentclass[letterpaper,10pt]{article}
+\title{Assignment 2 Report - Logistic Regression with \(L_2\) Regularization}
+\author{Helena Bales and Natalie Suderman\\ \\ CS343 - Spring 2017}
+\usepackage[pdftex]{graphicx}
+\usepackage{tikz}
+\usepackage{float}
+
+\parindent = 0.0 in
+\parskip = 0.1 in
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+\clearpage
+
+\section{Introduction}
+This report covers the second implementation assignment for Machine Learning and Data Mining. This 
+assignment covers logistic regression with \(L_2\) Regularization using data from USPS's database of 
+handwritten digits. This program will distinguish handwritten number 4's from 9's. Each digit is an 
+image of size 16x16 pixels. The dataset that we will use was given on the class website and contains 
+700 training samples and 400 testing samples. We used the batch decent gradient algorithm to train 
+to train the classifier. In order to complete this, we had to pick a reasonable learning rate and 
+identify a reasonable stopping condition. These dicisions will be covered in the Question 1 section 
+below. Following completion of question 1, we reran the model from the beginning and plotted each 
+decent gradient iteration. These plots, as well as an interpretation of the plots, can be found in 
+the Question 2 section below. The next question involves \(L_2\) regularization. We will modify the 
+code to find the gradient for the objective function \(L(w)\) given in the assignment and modify the 
+batch gradient descent algorithm with this new gradient. The process and pseudocode for the \(L_2\) 
+regularization will be covered in the Question 3 section below. Finally, the Question 4 section will 
+cover the implementation of the change discussed in the Question 3 section. This implementation will 
+then be evaluated based on their accuracies of the training and testing achieved using different 
+\(\lambda\) values.
+
+\section{Question 1}
+\subsection{Problem Statement}
+Implement the batch gradient descent algorithm to train a binary logistic regression classifier. 
+The behavior of Gradient descent can be strongly in influenced by the learning rate. Experiment with 
+different learning rates, report your observation on the convergence behavior of the gradient 
+descent algorithm. For your implementation, you will need to decide a stopping condition. You might 
+use a fixed number of iterations, the change of the objective value (when it ceases to be 
+significant) or the norm of the gradient (when it is smaller than a small threshold). Note, if you 
+observe an overflow, then your learning rate is too big, so you need to try smaller learning rates.
+
+\subsection{Algorithm Implementation}
+\subsection{Learning Rate}
+
+\subsection{Stopping Condition}
+
+\section{Question 2}
+\subsection{Problem Statement}
+Once you identify a suitable learning rate, rerun the training of the model from the beginning. For 
+each gradient descent iteration, plot the training accuracy and the testing accuracy of your model 
+as a function of the number of gradient descent iterations. What trend do you observe?
+
+\subsection{Method}
+\subsection{Plots}
+\subsection{Interpretation of Data}
+
+\section{Question 3}
+\subsection{Problem Statement}
+As discussed in class, Logistic regression is typically used with regularization. We will explore 
+\(L_2\) regularization for this question. In particular, we will the following objective with an 
+additional regularization term that is equal to the squared Euclidean norm of the weight vector.
+
+Where the loss function l is the same as introduced in class (slide 7 of the logistic regression 
+notes). Find the gradient for this objective function and modify the batch gradient descent \
+algorithm with this new gradient. Provide the pseudo code for your modified algorithm.
+
+\subsection{Method}
+\subsection{Pseudocode}
+
+\section{Question 4}
+\subsection{Problem Statement}
+
+\subsection{Implementation of Pseudocode from Question 3}
+\subsection{Evaluation of Implementation}
+
+\section{Conclusion}
+
+\end{document}
