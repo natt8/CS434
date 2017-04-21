@@ -98,16 +98,12 @@ Where \(l(g(w^T x^i), y^i) = \{^{-log(g(w^T x^i)), if y^i = 1}_{-log(1-g(w^T x^i
 \[ \bigtriangledown l(g(w^T x^i), y^i) = -(y^i - g(w^T x^i)) x^i \]
 
 \subsection{Pseudocode}
-Given training examples \((x^i, y^i)\), \(i=1,...,N\)\\
-Let \(w \leftarrow (0,0,0,...,0)\)\\
-Repeat until convergence.\\
-\(d \leftarrow (0,0,0,..,0)\)
-For every example \(i=1\) to \(N\) do\\
-\[ \hat{y^i} \leftarrow \frac{1}{1+e^{-w^T x^i}} \]
-\[ error = y^i - \hat{y^i} \]
-\[ d = d + error x^i \]
-
-\(w \leftarrow w + \eta d \) where \(\eta\) is the learning step size.
+\begin{enumerate}
+	\item{Start with an initial guess \(w^0\).}
+	\item{Find the direction of steepest descent \(= - \bigtriangledown f(w) \)}
+	\item{Take a step towards that direction \( = w^{t+1} = w^T - \bigtriangledown f(w^T) \)}
+	\item{Repeat until no local improvement is possible.}
+\end{enumerate}
 
 \section{Question 4}
 \subsection{Problem Statement}
