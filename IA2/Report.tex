@@ -42,10 +42,22 @@ use a fixed number of iterations, the change of the objective value (when it cea
 significant) or the norm of the gradient (when it is smaller than a small threshold). Note, if you 
 observe an overflow, then your learning rate is too big, so you need to try smaller learning rates.
 
-\subsection{Algorithm Implementation}
-\subsection{Learning Rate}
+\subsection{Convergence Behavior}
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=250pt]{convergenceClose.png}
+    \caption{Convergence of loss function}
+    \label{fig:Convergence of loss function over iterations}
+    \end{figure}
+As the data was run multiple times the loss function was minimized.
+We ran about 1000 iterations, but in order to focus on the interesting parts, only the first 100 iterations were included in the interest of space.   
 
+\subsection{Learning Rate}
+The learning rate we decided on was .00000001. 
+Learning rates bigger than .000001 always gave us an overflow error before the gradient converged.
 \subsection{Stopping Condition}
+Originally, we used the stopping condition ||dNew-dOld||2 < .01, but the way that I calculated accuracy didn't provide enough significant digits for this to be successful.
+Instead we chose to stop using a set number of iterations. In our case, about 1000 iterations was sufficient to see the convergence.  
 
 \section{Question 2}
 \subsection{Problem Statement}
@@ -53,9 +65,16 @@ Once you identify a suitable learning rate, rerun the training of the model from
 each gradient descent iteration, plot the training accuracy and the testing accuracy of your model 
 as a function of the number of gradient descent iterations. What trend do you observe?
 
-\subsection{Method}
 \subsection{Plots}
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=250pt]{gradientDescentImprovement.png}
+    \caption{Plot of accuracy of each data set}
+    \label{fig:Plot of accuracy over iterations. Red is training data}
+    \end{figure}
 \subsection{Interpretation of Data}
+The test data immediately begins at a higher accuracy, because it has the advantage of starting with the weight vector calculated from the train data. You can see that after several iterations the model improves dramatically, and rests at about a 95\% accuracy for both sets of data.
+
 
 \section{Question 3}
 \subsection{Problem Statement}
