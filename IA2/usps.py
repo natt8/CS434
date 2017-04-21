@@ -23,32 +23,32 @@ def batch_gradient_descent(data, y, w):
 	x = 0
 	max_exponent = 0;
 	iterations = []
-	avErrorList = []
+	avAccuracyList = []
 	dOld = np.zeros((len(data[0]),1))
 	while (convergence != True):
-		errorList = []
-		#print w
-		#print data[x]
+		correct = 0
 		dNew = np.zeros((len(data[0]),1))
 		dataT = data.T
 		print "----------------------------------------------"
 		for i in range(1, len(data)):
-		#	print "i ", i
 			exponent = (-1*(w)) * (data[i-1].T)
 			yHat = 1/(1+ math.exp(exponent))
-			errors = y[i] - yHat
-
-			errorList.append(errors)		
+			yHatRound = round(yHat)
+	
+			errors = y[i] - yHatRound
+			if(errors == 0):
+				correct = correct + 1
 			dNew = dNew + (errors.item(0) * data[i])
 		w = w + (learningRate * dNew)
 
-		sumError = sum(errorList)
-		avError = sumError / len(y)
-		print "%Error" , avError
-		avErrorList.append(avError)
+		avAccuracy = float(correct) / float(len(y))
+		print correct, " Correct, out of ", len(y) 
+		print "% Accurracy" , avAccuracy
+		avAccuracyList.append(avAccuracy)
 		iterations.append(x)	
 
-		if(np.linalg.norm((dNew - dOld), 'fro') < 1 or x > 100):
+		#if(np.linalg.norm((dNew - dOld), 'fro') < .1 or x > 10000):
+		if(x >= 100):
 			convergence = True;	
 		else:
 			print np.linalg.norm((dNew - dOld), 'fro')
@@ -56,55 +56,47 @@ def batch_gradient_descent(data, y, w):
 			dOld = dNew;
 			x = x + 1
 
-	return iterations, avErrorList
+	return iterations, avAccuracyList, w
 
-def graph_error_over_iterations(iterations, avErrorList, source):
-	#print iterations
-	#print avError
-		
-
+def graph_error_over_iterations(iterations, avAccuracyList, source):
 	it = np.array(iterations)
-	err = np.array(avErrorList)
+	err = np.array(avAccuracyList)
 	err.shape = it.shape
-
-
 
 	print it.shape
 	print err.shape	
 	plt.figure(1)
 	if(source == 0):
-		plt.plot(it, err, 'r', label='test')
+		plt.plot(it, err, 'r', label='train')
 	else:
-		plt.plot(it, err, 'b', label='train')
-	plt.xlabel('iterations')
-	plt.ylabel('Average error %')
+		plt.plot(it, err, 'b', label='test')
+	plt.xlabel('Iterations')
+	plt.ylabel('% Accuracy')
 	plt.savefig('gradientDescentImprovement.png')
 
 
-def get_train_data():
-#	reader = open("usps-4-9-train.csv", "rb")
+def get_data(filename):
 	data = []
-	myText = np.loadtxt(open("usps-4-9-train.csv", "rb"), delimiter=",")
+	myText = np.loadtxt(open(filename, "rb"), delimiter=",")
 	x = list(myText)
 	data = np.array(x).astype("float")
-	#rowTemp  = []
-	#for line in reader:
-	#	rowTemp = line.split(",")
-#		numbers = [float(n) for n in rowTemp]
-	#	data.append(rowTemp)#numbers)
-	rowNum = len(data)
+
 	y = matrix(column(data, 256)).T
 	data = matrix(np.delete(data, 256, axis=1))
 
-	#Add columns of ones 
-	dataD = data
-#	b = np.ones((rowNum,1))
-#	dataD = np.append(dataD, b, axis=1)
+	return data, y
 
-	return data, dataD, y
+filename = "usps-4-9-train.csv"
+filenameT = "usps-4-9-test.csv"
 
-dataNo, data, y = get_train_data()
+data, y = get_data(filename)
 w = matrix(np.zeros(256))
 
-iterations, avError = batch_gradient_descent(data, y, w)	
-graph_error_over_iterations(iterations, avError, 0)
+iterations, avAccuracy, w2 = batch_gradient_descent(data, y, w)	
+graph_error_over_iterations(iterations, avAccuracy, 0)
+
+#Test data
+data, y = get_data(filenameT)
+#print w2
+iterations, avAccuracy, wunsued = batch_gradient_descent(data, y, w2)	
+graph_error_over_iterations(iterations, avAccuracy, 1)
