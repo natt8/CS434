@@ -44,13 +44,13 @@ def batch_gradient_descent(data, y, w, source):
                         #print gradL
 
                         #take a step in that direction
-                        w = w - gradL
+                        #w = w - gradL
 
 			errors = y[i] - yHatRound
                         #print errors
 			if(errors.any() == 0):
 				correct = correct + 1
-			dNew = dNew + (errors.item(0) * data[i])
+			dNew = dNew - gradL
 		if(source == 0):
 			w = w + (learningRate * dNew)
 
