@@ -42,9 +42,9 @@ def batch_gradient_descent(data, y, w, source):
                         gradl = -(y[i] - yHatRound) * data[i-1]
 
                         #take a step in that direction
-                        w = w - gradl
+                        wNext = w - gradl
 	
-			errors = y[i] - yHatRound
+			errors = y[i] - wNext
 			if(errors == 0):
 				correct = correct + 1
 			dNew = dNew + (errors.item(0) * data[i])
