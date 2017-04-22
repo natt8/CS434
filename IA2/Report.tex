@@ -45,7 +45,7 @@ observe an overflow, then your learning rate is too big, so you need to try smal
 \subsection{Convergence Behavior}
      \begin{figure}[ht]
     \centering
-   \includegraphics[width=250pt]{convergenceClose.png}
+   \includegraphics[width=250pt]{convergenceClose1.png}
     \caption{Convergence of loss function}
     \label{fig:Convergence of loss function over iterations}
     \end{figure}
@@ -68,7 +68,7 @@ as a function of the number of gradient descent iterations. What trend do you ob
 \subsection{Plots}
      \begin{figure}[ht]
     \centering
-   \includegraphics[width=250pt]{gradientDescentImprovement.png}
+   \includegraphics[width=250pt]{gradientDescentImprovement1.png}
     \caption{Plot of accuracy of each data set}
     \label{fig:Plot of accuracy over iterations. Red is training data}
     \end{figure}
@@ -96,6 +96,7 @@ Where \(l(g(w^T x^i), y^i) = \{^{-log(g(w^T x^i)), if y^i = 1}_{-log(1-g(w^T x^i
 \[ l(g(w^T x^i), y^i) = -y^i log(g(w^T x^i)) - (1-y^i) log(1 - g(w^T x^i)) \]
 \[ \bigtriangledown g(w^T x^i) = g(w^T x^i) (1 - g(w^T x^i)) x^i \]
 \[ \bigtriangledown l(g(w^T x^i), y^i) = -(y^i - g(w^T x^i)) x^i \]
+\[ \bigtriangledown L(l(g(w^T x^i), y^i) + \frac{1}{2} \lambda ||w||_2^2) = -(y^i - g(w^T x^i)) x^i + \frac{1}{2} \lambda \]
 
 \subsection{Pseudocode}
 \begin{enumerate}
@@ -110,7 +111,16 @@ Where \(l(g(w^T x^i), y^i) = \{^{-log(g(w^T x^i)), if y^i = 1}_{-log(1-g(w^T x^i
 Implement the algorithm in [3], and experiment with different \(\lambda\) values. Report the training and testing accuracies achieved by the weight vectors learned with different \(\lambda\) values. Discuss your results in terms of the relationship between training/testing performance and the \(\lambda\) values.
 
 \subsection{Implementation of Pseudocode from Question 3}
+The Pseudocode from Question 3 is implemented in the file L2-usps.py.
+
 \subsection{Evaluation of Implementation}
+\subsubsection{Results for \(\lambda = 10^{-3}\)}
+\subsubsection{Results for \(\lambda = 10^{-2}\)}
+\subsubsection{Results for \(\lambda = 10^{-1}\)}
+\subsubsection{Results for \(\lambda = 10^{0}\)}
+\subsubsection{Results for \(\lambda = 10^{1}\)}
+\subsubsection{Results for \(\lambda = 10^{2}\)}
+\subsubsection{Results for \(\lambda = 10^{3}\)}
 
 \section{Conclusion}
 

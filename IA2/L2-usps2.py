@@ -18,6 +18,7 @@ def column(dataset, i):
 def batch_gradient_descent(data, y, w, source):
 	convergence = False
 	learningRate = .00000001
+        lambda_val = 10^-3
 	errors = 0
 	yHat = 0
 	x = 0
@@ -39,13 +40,15 @@ def batch_gradient_descent(data, y, w, source):
 			yHatRound = round(yHat)
     
                         #calculate the gradient
-                        gradl = -(y[i] - yHatRound) * data[i-1]
+                        gradL = (-(y[i] - yHatRound) * data[i-1]) + (0.5 * lambda_val)
+                        #print gradL
 
                         #take a step in that direction
-                        wNext = w - gradl
-	
-			errors = y[i] - wNext
-			if(errors == 0):
+                        w = w - gradL
+
+			errors = y[i] - yHatRound
+                        #print errors
+			if(errors.any() == 0):
 				correct = correct + 1
 			dNew = dNew + (errors.item(0) * data[i])
 		if(source == 0):
@@ -59,7 +62,7 @@ def batch_gradient_descent(data, y, w, source):
 
 		avAccuracy = float(correct) / float(len(y))
 		print correct, " Correct, out of ", len(y) 
-		print "% Accurracy" , avAccuracy
+		print "Accurracy" , avAccuracy
 		avAccuracyList.append(avAccuracy)
 		iterations.append(x)	
 
@@ -99,7 +102,7 @@ def graph_error_over_iterations(iterations, avAccuracyList, source):
 		plt.plot(it, err, 'b', label='test')
 	plt.xlabel('Iterations')
 	plt.ylabel('% Accuracy')
-	plt.savefig('gradientLong.png')
+	plt.savefig('L2-gradientLong.png')
 
 def graph_convergence(iterations, lossList, source):
 	it = np.array(iterations)
@@ -116,7 +119,7 @@ def graph_convergence(iterations, lossList, source):
 	plt.xlabel('Iterations')
 	plt.ylabel('Loss')
 	#plt.ylim([-1, 2000)
-	plt.savefig('convergence.png')
+	plt.savefig('L2-convergence.png')
 
 
 
