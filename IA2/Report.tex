@@ -87,7 +87,27 @@ notes). Find the gradient for this objective function and modify the batch gradi
 algorithm with this new gradient. Provide the pseudo code for your modified algorithm.
 
 \subsection{Method}
+I will be finding the gradient of the following objective function:
+\[L(w) = \sum_{i=1}^n l(g(w^T x^i), y^i) + \frac{1}{2} \lambda ||w||_2^2  \]
+Where \(l(g(w^T x^i), y^i) = \{^{-log(g(w^T x^i)), if y^i = 1}_{-log(1-g(w^T x^i)), if y^i = 0} \)
+
+\subsection{Calculating Gradient}
+\[ l(g(w^T x^i), y^i) = -y^i log(P(y=1 | x^i; w)) - (1-y^i) log(1-P(y=1 | x^i; w)) \]
+\[ l(g(w^T x^i), y^i) = -y^i log(g(w^T x^i)) - (1-y^i) log(1 - g(w^T x^i)) \]
+\[ \bigtriangledown g(w^T x^i) = g(w^T x^i) (1 - g(w^T x^i)) x^i \]
+\[ \bigtriangledown l(g(w^T x^i), y^i) = -(y^i - g(w^T x^i)) x^i \]
+
 \subsection{Pseudocode}
+Given training examples \((x^i, y^i)\), \(i=1,...,N\)\\
+Let \(w \leftarrow (0,0,0,...,0)\)\\
+Repeat until convergence.\\
+\(d \leftarrow (0,0,0,..,0)\)
+For every example \(i=1\) to \(N\) do\\
+\[ \hat{y^i} \leftarrow \frac{1}{1+e^{-w^T x^i}} \]
+\[ error = y^i - \hat{y^i} \]
+\[ d = d + error x^i \]
+
+\(w \leftarrow w + \eta d \) where \(\eta\) is the learning step size.
 
 \section{Question 4}
 \subsection{Problem Statement}
