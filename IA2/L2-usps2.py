@@ -33,9 +33,16 @@ def batch_gradient_descent(data, y, w, source):
 		dataT = data.T
 		print "----------------------------------------------"
 		for i in range(1, len(data)):
+                        #calculate yhat = g(wT xi)
 			exponent = (-1*(w)) * (data[i-1].T)
 			yHat = 1/(1+ math.exp(exponent))
 			yHatRound = round(yHat)
+    
+                        #calculate the gradient
+                        gradl = -(y[i] - yHatRound) * data[i-1]
+
+                        #take a step in that direction
+                        w = w - gradl
 	
 			errors = y[i] - yHatRound
 			if(errors == 0):
