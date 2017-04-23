@@ -45,7 +45,7 @@ observe an overflow, then your learning rate is too big, so you need to try smal
 \subsection{Convergence Behavior}
      \begin{figure}[ht]
     \centering
-   \includegraphics[width=250pt]{convergenceClose.png}
+   \includegraphics[width=250pt]{convergenceClose1.png}
     \caption{Convergence of loss function}
     \label{fig:Convergence of loss function over iterations}
     \end{figure}
@@ -68,7 +68,7 @@ as a function of the number of gradient descent iterations. What trend do you ob
 \subsection{Plots}
      \begin{figure}[ht]
     \centering
-   \includegraphics[width=250pt]{gradientDescentImprovement.png}
+   \includegraphics[width=250pt]{gradientDescentImprovement1.png}
     \caption{Plot of accuracy of each data set}
     \label{fig:Plot of accuracy over iterations. Red is training data}
     \end{figure}
@@ -96,25 +96,126 @@ Where \(l(g(w^T x^i), y^i) = \{^{-log(g(w^T x^i)), if y^i = 1}_{-log(1-g(w^T x^i
 \[ l(g(w^T x^i), y^i) = -y^i log(g(w^T x^i)) - (1-y^i) log(1 - g(w^T x^i)) \]
 \[ \bigtriangledown g(w^T x^i) = g(w^T x^i) (1 - g(w^T x^i)) x^i \]
 \[ \bigtriangledown l(g(w^T x^i), y^i) = -(y^i - g(w^T x^i)) x^i \]
+\[ \bigtriangledown L(l(g(w^T x^i), y^i) + \frac{1}{2} \lambda ||w||_2^2) = -(y^i - g(w^T x^i)) x^i + \frac{1}{2} \lambda \]
 
 \subsection{Pseudocode}
-Given training examples \((x^i, y^i)\), \(i=1,...,N\)\\
-Let \(w \leftarrow (0,0,0,...,0)\)\\
-Repeat until convergence.\\
-\(d \leftarrow (0,0,0,..,0)\)
-For every example \(i=1\) to \(N\) do\\
-\[ \hat{y^i} \leftarrow \frac{1}{1+e^{-w^T x^i}} \]
-\[ error = y^i - \hat{y^i} \]
-\[ d = d + error x^i \]
-
-\(w \leftarrow w + \eta d \) where \(\eta\) is the learning step size.
+\begin{enumerate}
+	\item{Start with an initial guess \(w^0\).}
+	\item{Find the direction of steepest descent \(= - \bigtriangledown f(w) \)}
+	\item{Take a step towards that direction \( = w^{t+1} = w^T - \bigtriangledown f(w^T) \)}
+	\item{Repeat until no local improvement is possible.}
+\end{enumerate}
 
 \section{Question 4}
 \subsection{Problem Statement}
+Implement the algorithm in [3], and experiment with different \(\lambda\) values. Report the training and testing accuracies achieved by the weight vectors learned with different \(\lambda\) values. Discuss your results in terms of the relationship between training/testing performance and the \(\lambda\) values.
 
 \subsection{Implementation of Pseudocode from Question 3}
-\subsection{Evaluation of Implementation}
+The Pseudocode from Question 3 is implemented in the file L2-usps.py.
 
-\section{Conclusion}
+\subsection{Evaluation of Implementation}
+\subsubsection{Results for \(\lambda = 10^{-3}\)}
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=250pt]{L2-neg3-convergence.png}
+    \caption{Convergence with \(\lambda = -3\)}
+    \label{fig:Convergence of loss function over iterations}
+    \end{figure}
+
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=250pt]{L2-neg3-gradientLong.png}
+     \caption{Accuracy with \(\lambda = -3\)}
+    \label{fig:Plot of accuracy over iterations. Red is training data.}
+    \end{figure}
+\subsubsection{Results for \(\lambda = 10^{-2}\)}
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=250pt]{L2-neg2-convergence.png}
+    \caption{Convergence with \(\lambda = -2\)}
+    \label{fig:Convergence of loss function over iterations}
+    \end{figure}
+
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=250pt]{L2-neg2-gradientLong.png}
+     \caption{Accuracy with \(\lambda = -2\)}
+    \label{fig:Plot of accuracy over iterations. Red is training data.}
+    \end{figure}
+\subsubsection{Results for \(\lambda = 10^{-1}\)}
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=250pt]{L2-neg1-convergence.png}
+    \caption{Convergence with \(\lambda = -1\)}
+    \label{fig:Convergence of loss function over iterations}
+    \end{figure}
+
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=250pt]{L2-neg1-gradientLong.png}
+     \caption{Accuracy with \(\lambda = -1\)}
+    \label{fig:Plot of accuracy over iterations. Red is training data.}
+    \end{figure}
+\subsubsection{Results for \(\lambda = 10^{0}\)}
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=250pt]{L2-0-convergence.png}
+    \caption{Convergence with \(\lambda = 0\)}
+    \label{fig:Convergence of loss function over iterations}
+    \end{figure}
+
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=250pt]{L2-0-gradientLong.png}
+     \caption{Accuracy with \(\lambda = 0\)}
+    \label{fig:Plot of accuracy over iterations. Red is training data.}
+    \end{figure}
+\subsubsection{Results for \(\lambda = 10^{1}\)}
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=250pt]{L2-pos1-convergence.png}
+    \caption{Convergence with \(\lambda = 1\)}
+    \label{fig:Convergence of loss function over iterations}
+    \end{figure}
+
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=250pt]{L2-pos1-gradientLong.png}
+     \caption{Accuracy with \(\lambda = 1\)}
+    \label{fig:Plot of accuracy over iterations. Red is training data.}
+    \end{figure}
+\subsubsection{Results for \(\lambda = 10^{2}\)}
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=250pt]{L2-pos2-convergence.png}
+    \caption{Convergence with \(\lambda = 2\)}
+    \label{fig:Convergence of loss function over iterations}
+    \end{figure}
+
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=250pt]{L2-pos2-gradientLong.png}
+     \caption{Accuracy with \(\lambda = 2\)}
+    \label{fig:Plot of accuracy over iterations. Red is training data.}
+    \end{figure}
+\subsubsection{Results for \(\lambda = 10^{3}\)}
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=250pt]{L2-pos3-convergence.png}
+    \caption{Convergence with \(\lambda = 3\)}
+    \label{fig:Convergence of loss function over iterations}
+    \end{figure}
+
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=250pt]{L2-pos3-gradientLong.png}
+     \caption{Accuracy with \(\lambda = 3\)}
+    \label{fig:Plot of accuracy over iterations. Red is training data.}
+    \end{figure}
+
+\subsubsection{Evaluation of Results for Different \(\lambda\) Values}
+The lambda values change both the accuracy of the results and the speed with which the optimal 
+accuracy is achieved. The more strongly negative the lambda value, the longer it takes to reach the 
+optimal accuracy and the more variance there is in the results. The more strongly positive lambda values make the accuracy increase and plateau more quickly.
 
 \end{document}
