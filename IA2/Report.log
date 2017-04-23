@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  22 APR 2017 14:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  22 APR 2017 17:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -350,7 +350,60 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box37
 \@float@everytoks=\toks28
 \@floatcapt=\box38
-) (./Report.aux)
+) (./Report.aux
+
+LaTeX Warning: Label `fig:Convergence of loss function over iterations' multipl
+y defined.
+
+
+LaTeX Warning: Label `fig:Convergence of loss function over iterations' multipl
+y defined.
+
+
+LaTeX Warning: Label `fig:Plot of accuracy over iterations. Red is training dat
+a.' multiply defined.
+
+
+LaTeX Warning: Label `fig:Convergence of loss function over iterations' multipl
+y defined.
+
+
+LaTeX Warning: Label `fig:Plot of accuracy over iterations. Red is training dat
+a.' multiply defined.
+
+
+LaTeX Warning: Label `fig:Convergence of loss function over iterations' multipl
+y defined.
+
+
+LaTeX Warning: Label `fig:Plot of accuracy over iterations. Red is training dat
+a.' multiply defined.
+
+
+LaTeX Warning: Label `fig:Convergence of loss function over iterations' multipl
+y defined.
+
+
+LaTeX Warning: Label `fig:Plot of accuracy over iterations. Red is training dat
+a.' multiply defined.
+
+
+LaTeX Warning: Label `fig:Convergence of loss function over iterations' multipl
+y defined.
+
+
+LaTeX Warning: Label `fig:Plot of accuracy over iterations. Red is training dat
+a.' multiply defined.
+
+
+LaTeX Warning: Label `fig:Convergence of loss function over iterations' multipl
+y defined.
+
+
+LaTeX Warning: Label `fig:Plot of accuracy over iterations. Red is training dat
+a.' multiply defined.
+
+)
 \openout1 = `Report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
@@ -365,8 +418,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
-
-(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+ (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count108
 \scratchdimen=\dimen151
@@ -447,47 +499,155 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \openout4 = `Report.toc'.
 
  [2]
-<convergenceClose.png, id=18, 578.16pt x 433.62pt>
-File: convergenceClose.png Graphic file (type png)
- <use convergenceClose.png>
-Package pdftex.def Info: convergenceClose.png used on input line 48.
+<convergenceClose1.png, id=21, 578.16pt x 433.62pt>
+File: convergenceClose1.png Graphic file (type png)
+
+<use convergenceClose1.png>
+Package pdftex.def Info: convergenceClose1.png used on input line 48.
 (pdftex.def)             Requested size: 250.0pt x 187.49837pt.
+ [3
 
-[3
+]
+<gradientDescentImprovement1.png, id=26, 578.16pt x 433.62pt>
+File: gradientDescentImprovement1.png Graphic file (type png)
 
-] <gradientDescentImprovement.png, id=25, 578.16pt x 433.62pt>
-File: gradientDescentImprovement.png Graphic file (type png)
+<use gradientDescentImprovement1.png>
+Package pdftex.def Info: gradientDescentImprovement1.png used on input line 71.
 
-<use gradientDescentImprovement.png>
-Package pdftex.def Info: gradientDescentImprovement.png used on input line 71.
 (pdftex.def)             Requested size: 250.0pt x 187.49837pt.
- [4 <./convergenceClose.png>] [5 <./gradientDescentImprovement.png>] [6] [7] (.
-/Report.aux) ) 
+ [4 <./convergenceClose1.png>] [5 <./gradientDescentImprovement1.png>]
+<L2-neg3-convergence.png, id=35, 462.528pt x 346.896pt>
+File: L2-neg3-convergence.png Graphic file (type png)
+
+<use L2-neg3-convergence.png>
+Package pdftex.def Info: L2-neg3-convergence.png used on input line 120.
+(pdftex.def)             Requested size: 250.0pt x 187.501pt.
+ [6]
+<L2-neg3-gradientLong.png, id=43, 462.528pt x 346.896pt>
+File: L2-neg3-gradientLong.png Graphic file (type png)
+
+<use L2-neg3-gradientLong.png>
+Package pdftex.def Info: L2-neg3-gradientLong.png used on input line 127.
+(pdftex.def)             Requested size: 250.0pt x 187.501pt.
+
+<L2-neg2-convergence.png, id=44, 462.528pt x 346.896pt>
+File: L2-neg2-convergence.png Graphic file (type png)
+
+<use L2-neg2-convergence.png>
+Package pdftex.def Info: L2-neg2-convergence.png used on input line 134.
+(pdftex.def)             Requested size: 250.0pt x 187.501pt.
+
+<L2-neg2-gradientLong.png, id=45, 462.528pt x 346.896pt>
+File: L2-neg2-gradientLong.png Graphic file (type png)
+
+<use L2-neg2-gradientLong.png>
+Package pdftex.def Info: L2-neg2-gradientLong.png used on input line 141.
+(pdftex.def)             Requested size: 250.0pt x 187.501pt.
+
+<L2-neg1-convergence.png, id=46, 462.528pt x 346.896pt>
+File: L2-neg1-convergence.png Graphic file (type png)
+
+<use L2-neg1-convergence.png>
+Package pdftex.def Info: L2-neg1-convergence.png used on input line 148.
+(pdftex.def)             Requested size: 250.0pt x 187.501pt.
+
+<L2-neg1-gradientLong.png, id=47, 462.528pt x 346.896pt>
+File: L2-neg1-gradientLong.png Graphic file (type png)
+
+<use L2-neg1-gradientLong.png>
+Package pdftex.def Info: L2-neg1-gradientLong.png used on input line 155.
+(pdftex.def)             Requested size: 250.0pt x 187.501pt.
+
+<L2-0-convergence.png, id=48, 462.528pt x 346.896pt>
+File: L2-0-convergence.png Graphic file (type png)
+
+<use L2-0-convergence.png>
+Package pdftex.def Info: L2-0-convergence.png used on input line 162.
+(pdftex.def)             Requested size: 250.0pt x 187.501pt.
+
+<L2-0-gradientLong.png, id=49, 462.528pt x 346.896pt>
+File: L2-0-gradientLong.png Graphic file (type png)
+
+<use L2-0-gradientLong.png>
+Package pdftex.def Info: L2-0-gradientLong.png used on input line 169.
+(pdftex.def)             Requested size: 250.0pt x 187.501pt.
+
+<L2-pos1-convergence.png, id=50, 462.528pt x 346.896pt>
+File: L2-pos1-convergence.png Graphic file (type png)
+
+<use L2-pos1-convergence.png>
+Package pdftex.def Info: L2-pos1-convergence.png used on input line 176.
+(pdftex.def)             Requested size: 250.0pt x 187.501pt.
+
+<L2-pos1-gradientLong.png, id=51, 462.528pt x 346.896pt>
+File: L2-pos1-gradientLong.png Graphic file (type png)
+
+<use L2-pos1-gradientLong.png>
+Package pdftex.def Info: L2-pos1-gradientLong.png used on input line 183.
+(pdftex.def)             Requested size: 250.0pt x 187.501pt.
+
+<L2-pos2-convergence.png, id=52, 462.528pt x 346.896pt>
+File: L2-pos2-convergence.png Graphic file (type png)
+
+<use L2-pos2-convergence.png>
+Package pdftex.def Info: L2-pos2-convergence.png used on input line 190.
+(pdftex.def)             Requested size: 250.0pt x 187.501pt.
+
+<L2-pos2-gradientLong.png, id=53, 462.528pt x 346.896pt>
+File: L2-pos2-gradientLong.png Graphic file (type png)
+
+<use L2-pos2-gradientLong.png>
+Package pdftex.def Info: L2-pos2-gradientLong.png used on input line 197.
+(pdftex.def)             Requested size: 250.0pt x 187.501pt.
+
+<L2-pos3-convergence.png, id=54, 462.528pt x 346.896pt>
+File: L2-pos3-convergence.png Graphic file (type png)
+
+<use L2-pos3-convergence.png>
+Package pdftex.def Info: L2-pos3-convergence.png used on input line 204.
+(pdftex.def)             Requested size: 250.0pt x 187.501pt.
+
+<L2-pos3-gradientLong.png, id=55, 462.528pt x 346.896pt>
+File: L2-pos3-gradientLong.png Graphic file (type png)
+
+<use L2-pos3-gradientLong.png>
+Package pdftex.def Info: L2-pos3-gradientLong.png used on input line 211.
+(pdftex.def)             Requested size: 250.0pt x 187.501pt.
+ [7 <./L2-neg3-convergence.png>] [8 <./L2-neg3-gradientLong.png> <./L2-neg2-con
+vergence.png>] [9 <./L2-neg2-gradientLong.png> <./L2-neg1-convergence.png>] [10
+ <./L2-neg1-gradientLong.png> <./L2-0-convergence.png>] [11 <./L2-0-gradientLon
+g.png> <./L2-pos1-convergence.png>] [12 <./L2-pos1-gradientLong.png> <./L2-pos2
+-convergence.png>] [13 <./L2-pos2-gradientLong.png> <./L2-pos3-convergence.png>
+] [14 <./L2-pos3-gradientLong.png>] (./Report.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 11408 strings out of 493014
- 233546 string characters out of 6133351
- 268712 words of memory out of 5000000
- 14743 multiletter control sequences out of 15000+600000
+ 11479 strings out of 493014
+ 235498 string characters out of 6133351
+ 268763 words of memory out of 5000000
+ 14800 multiletter control sequences out of 15000+600000
  8510 words of font info for 30 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,6n,54p,405b,232s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmex10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmm
-i5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7
-.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
-fb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
-></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></us
-r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on Report.pdf (7 pages, 190424 bytes).
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
+/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
+ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loc
+al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local
+/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on Report.pdf (14 pages, 399371 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 61 compressed objects within 1 object stream
+ 138 PDF objects out of 1000 (max. 8388607)
+ 76 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

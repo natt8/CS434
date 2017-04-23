@@ -18,7 +18,7 @@ def column(dataset, i):
 def batch_gradient_descent(data, y, w, source):
 	convergence = False
 	learningRate = .00000001
-        lambda_val = 10^-3
+        lambda_val = 10^3
 	errors = 0
 	yHat = 0
 	x = 0
@@ -41,24 +41,23 @@ def batch_gradient_descent(data, y, w, source):
     
                         #calculate the gradient
                         gradL = (-(y[i] - yHatRound) * data[i-1]) + (0.5 * lambda_val)
-                        #print gradL
 
-                        #take a step in that direction
-                        #w = w - gradL
-
+                        #calculate the error
 			errors = y[i] - yHatRound
-                        #print errors
+
 			if(errors.any() == 0):
 				correct = correct + 1
+
 			dNew = dNew - gradL
+
 		if(source == 0):
 			w = w + (learningRate * dNew)
 
 		for j in range(1, len(data)):
 			loss = find_convergence(w, data[i-1], y[i])
 			objectiveSum = objectiveSum + loss
+
 		objectiveList.append(objectiveSum)
-		#lossList.append(loss)
 
 		avAccuracy = float(correct) / float(len(y))
 		print correct, " Correct, out of ", len(y) 
