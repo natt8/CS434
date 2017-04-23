@@ -25,4 +25,3 @@
 \contentsline {subsubsection}{\numberline {5.3.6}Results for \(\lambda = 10^{2}\)}{7}
 \contentsline {subsubsection}{\numberline {5.3.7}Results for \(\lambda = 10^{3}\)}{7}
 \contentsline {subsubsection}{\numberline {5.3.8}Evaluation of Results for Different \(\lambda \) Values}{7}
-\contentsline {section}{\numberline {6}Conclusion}{7}
