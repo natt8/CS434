@@ -1,0 +1,8 @@
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {section}{\numberline {2}Model Selection for KNN}{2}
+\contentsline {subsection}{\numberline {2.1}Implementing the K-Nearest Neighbors Algorithm}{2}
+\contentsline {subsection}{\numberline {2.2}Evaluation of Error with Respect to K}{3}
+\contentsline {subsubsection}{\numberline {2.2.1}Computed Training Error}{3}
+\contentsline {subsubsection}{\numberline {2.2.2}Computed Leave-One-Out Cross-Validation Error}{3}
+\contentsline {subsubsection}{\numberline {2.2.3}Number of Errors on Provided Test Data}{3}
+\contentsline {subsubsection}{\numberline {2.2.4}Plot of Errors as a Function of K}{3}
