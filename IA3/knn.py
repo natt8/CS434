@@ -42,17 +42,20 @@ def decision_stump(data, classifier):
 		info_gain = 0
 		feature_data = np.array(column(data, i))
 		np.sort(feature_data)
-		splits =  find_splits(feature_data, classifier)
-		for j in splits:
+		splits, split_index = find_splits(feature_data, classifier)
+		for j in range(0, len(splits)):
 			left = []
 			right = []
-			for k in range(0, len(feature_data)):
-				if feature_data[k] < j:
-					left.append(feature_data[k])
-					left_class.append(classifier[k])
-				else:
-					right.append(feature_data[k])
-					right_class.append(classifier[k])
+			#for k in range(0, len(feature_data)):
+			#	if feature_data[k] < j:
+			left.append(feature_data[:split_index[j] ])
+			left_class.append(classifier[j])
+
+			#print left
+			#else:
+			right.append(feature_data[split_index[j]:])
+			right_class.append(classifier[j])
+			#print len(right)
 
 			p1 = float(len(left)) / float(len(feature_data))
 			p2 = float(len(right)) / float(len(feature_data))
@@ -69,7 +72,7 @@ def decision_stump(data, classifier):
 			if (info_gain > max_info_gain):
 				max_info_gain = info_gain
 				best_feature  = i #feature_data
-				best_split = j
+				best_split = splits[j]
 	print best_feature
 	print best_split
 	print max_info_gain		  	
@@ -110,6 +113,7 @@ def entropy(data, classifier):
 
 def find_splits(data , classifier):
 	split = []
+	split_index = []
 #for the data for feature order data from least to greatest
 	for i in range(0, (len(data)-1)):
 		#find 2 indecies that do not share a class, 
@@ -117,7 +121,8 @@ def find_splits(data , classifier):
 			#add values divide by 2, this is your split
 			#keep list of splits
 			split.append((data[i] + data[i+1]) / 2)
-	return split
+			split_index.append(i)
+	return split, split_index
 
 
 
