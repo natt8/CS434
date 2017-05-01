@@ -6,3 +6,9 @@
 \contentsline {subsubsection}{\numberline {2.2.2}Computed Leave-One-Out Cross-Validation Error}{3}
 \contentsline {subsubsection}{\numberline {2.2.3}Number of Errors on Provided Test Data}{3}
 \contentsline {subsubsection}{\numberline {2.2.4}Plot of Errors as a Function of K}{3}
+\contentsline {subsection}{\numberline {2.3}Evaluation of Different Measures of Error and Model Selection}{3}
+\contentsline {subsubsection}{\numberline {2.3.1}Evaluation of Measures of Error}{3}
+\contentsline {subsubsection}{\numberline {2.3.2}Model Selection}{3}
+\contentsline {section}{\numberline {3}Decision Tree}{3}
+\contentsline {subsection}{\numberline {3.1}Implementing Learning Decision Tree Stump}{3}
+\contentsline {subsection}{\numberline {3.2}Implementing Top-Down Greedy Induction for Learning Decision Tree}{3}

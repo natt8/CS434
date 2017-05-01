@@ -86,7 +86,7 @@ def decision_stump(data):
 	print "left branch class", best_left
 	print "right branch class", best_right		  	
 
-	return best_split, best_feature, best_left_class, best_right_class, base_error
+	return best_split, best_feature, best_left_class, best_right_class, best_base, base_error
 
 def build_tree(data, test, depth, tree, di):
 	total_error = 0
@@ -101,9 +101,9 @@ def build_tree(data, test, depth, tree, di):
 		right_test_class = []
 		left_class = []
 		right_class = []
-		split, index, left_class, right_class, error = decision_stump(data)
+		split, index, left_class, right_class, base_label, error = decision_stump(data)
 		total_error = total_error + error 
-		tree.append((index,split,depth,di))
+		tree.append((index,split,depth,di,base_label))
 	
 		sorted_data = sorted(data, key=lambda x: x[index])
 		sorted_test = sorted(test, key=lambda x: x[index])
@@ -111,7 +111,8 @@ def build_tree(data, test, depth, tree, di):
 		if(len(test_classifier) > 1):
 			en, lbl, t_error = entropy(test_classifier)
 			test_error = test_error + t_error
-
+			print "Test Error"
+			print test_error
 
 		print "total"
 		print(len(data))
@@ -233,7 +234,7 @@ for i in range(0, len(tree)):
 	for j in range(0, depth):
 		buildstring = buildstring + "	"
 	if tree[i][0] != []:
-		print buildstring, tree[i][0], tree[i][1], tree[i][3]
+		print buildstring, tree[i][0], tree[i][1], tree[i][3], tree[i][4]
 	
 
 
