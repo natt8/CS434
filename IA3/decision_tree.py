@@ -33,6 +33,8 @@ def decision_stump(data):
 	base_error = 0
 	left_error = 0
 	right_error = 0
+	left_pos = 0
+	right_pos  = 0
 
 	for i in range(1, len(data[0])):
 		#print i
