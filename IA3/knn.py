@@ -48,7 +48,7 @@ def get_neighbors(data, distances, k):
     neighbors = []
 
     # for each of the 284 data points find the k closest points
-    for i in range(0, 284):
+    for i in range(0, len(distances)):
         templist = []
         neighbor = distances[i]
 
@@ -110,7 +110,7 @@ def calc_error(data, responses):
 
     return error
 
-def knn(data, test, k):
+def knn(data, test, splits, k, n):
     total_error = 0
     test_error = 0
     error = 0
@@ -131,6 +131,25 @@ def knn(data, test, k):
 
     total_error = calc_error(data, responses)
 
+    # LEAVE ONE OUT CROSS VALIDATION
+    sum_error = 0
+    loo_error = 0
+    a =  len(data) / n
+    
+    for i in range(0, n):
+        b = len(splits[i][0])
+
+        print splits[i]
+        distances = calc_distances(splits[i], a, b)
+        
+        neighbors = get_neighbors(splits[i], distances, k)
+
+        responses = get_responses(neighbors, a, k)
+
+        sum_error += calc_error(splits[i], responses)
+
+    loo_error = sum_error / n
+
     # TESTING DATA
     #store the dimmentions of the data array for future use 
     a = len(dataT)
@@ -144,7 +163,20 @@ def knn(data, test, k):
 
     test_error = calc_error(data, responses)
 
-    return total_error, test_error
+    return total_error, test_error, loo_error
+
+def cross_validation_split(dataset, folds):
+    dataset_split = list()
+    dataset_copy = list(dataset)
+    fold_size = int(len(dataset) / folds)
+    for i in range(folds):
+        fold = list()
+        while len(fold) < fold_size:
+            index = randrange(len(dataset_copy))
+            fold.append(dataset_copy.pop(index))
+            dataset_split.append(fold)
+
+    return dataset_split
 
 def count(classifier, label):
 	count = 0
@@ -167,7 +199,7 @@ def scale_data(data):
                 max_col = feature_data[j] * -1
 
         # scale the data if the max isn't 1
-        for j in range(1, 31):
+        for j in range(1, len(data[i])):
             if(max_col > 1):
                 data[i][j] = feature_data[j] / int(max_col)
             
@@ -185,6 +217,7 @@ def get_data(filename):
 
 #define k here
 k = 1
+num_folds = 5
 
 #define filename here
 filename = "knn_train.csv"
@@ -198,11 +231,16 @@ dataT, yT = get_data(filenameT)
 data = scale_data(data)
 dataT = scale_data(dataT)
 
+#split the data for leave one out cross validation
+folds = cross_validation_split(data, num_folds)
+
 #run knn on training and test data
-train_error, test_error = knn(data, dataT, k)
+train_error, test_error, loo_error = knn(data, dataT, folds, k, num_folds)
 
 print "Total training error"
 print float(train_error) / float(len(data))
-print "Total testing error"
-print float(test_error) / float(len(dataT))
+print "Leave-one-out cross-validation error"
+print float(loo_error)
+print "Number of testing errors"
+print float(test_error)
 
