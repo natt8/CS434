@@ -47,13 +47,55 @@ For each line in the csv, its k nearest neighbors will be used to determine its 
 
 \subsection{Evaluation of Error with Respect to K}
 \subsubsection{Computed Training Error}
+The following list are the computed training error for various \(k\) values.
+\begin{itemize}
+	\item{\textbf{k=1}: 0.355633802817}
+	\item{\textbf{k=3}: 0.644366197183}
+	\item{\textbf{k=5}: 0.355633802817 }
+	\item{\textbf{k=7}: 0.355633802817}
+	\item{\textbf{k=15}: 0.352112676056}
+	\item{\textbf{k=21}: 0.355633802817}
+	\item{\textbf{k=37}: 0.355633802817}
+	\item{\textbf{k=43}: 0.355633802817}
+	\item{\textbf{k=51}: 0.362676056338}
+\end{itemize}
 \subsubsection{Computed Leave-One-Out Cross-Validation Error}
+\begin{itemize}
+	\item{\textbf{k=1}: 29}
+	\item{\textbf{k=3}: 22}
+	\item{\textbf{k=5}: 23}
+	\item{\textbf{k=7}: 27}
+	\item{\textbf{k=15}: 15}
+	\item{\textbf{k=21}: 24}
+	\item{\textbf{k=37}: 17}
+	\item{\textbf{k=43}: 21}
+	\item{\textbf{k=51}: 19}
+\end{itemize}
 \subsubsection{Number of Errors on Provided Test Data}
+\begin{itemize}
+	\item{\textbf{k=1}: 183}
+	\item{\textbf{k=3}: 183}
+	\item{\textbf{k=5}: 101}
+	\item{\textbf{k=7}: 139}
+	\item{\textbf{k=15}: 101}
+	\item{\textbf{k=21}: 100}
+	\item{\textbf{k=37}: 151}
+	\item{\textbf{k=43}: 101}
+	\item{\textbf{k=51}: 100}
+\end{itemize}
 \subsubsection{Plot of Errors as a Function of K}
+     \begin{figure}[ht]
+    \centering
+   \includegraphics[width=300pt]{knn_graph.png}
+    \caption{Training error, Leave-one-out Cross-validation error, and Testing error for various K values}
+    \label{fig:knnError}
+    \end{figure}	
+
 
 \subsection{Evaluation of Different Measures of Error and Model Selection}
-\subsubsection{Evaluation of Measures of Error}
-\subsubsection{Model Selection}
+Based on the lecture, the leave-one-out cross-validation method of measuring error is the most informative. Given this, we should make the decision of which k value to use based on all three of the error values, however we should consider the leave-one-out error to be the most important.
+
+From looking at the graph we can see that the lowest point in the leave-one-out error occurs when \(k = 15\). At this point, the leave-one-out error is at its global minimum of 15 and the training and testing errors are at their local minimum values of approximately 35. Given this, we should select k to be 15.
 
 \section{Decision Tree}
 \subsection{Implementing Learning Decision Tree Stump}
