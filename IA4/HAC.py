@@ -29,9 +29,14 @@ def get_data(filename):
 
     #y = (column(data, 0))
 
-	return data#, y
+	return data
 
 def HAC(vectors, threshold):
+
+
+
+
+
     def similarity(pair):
         #calculate the similarity between the pair
         a = np.array([vectors[i] for i in pair[0]])
@@ -51,8 +56,10 @@ def HAC(vectors, threshold):
 
     # Init label
     j = len(clusters)
-
+    max_sims = []	
     while True:
+	
+
         pairs = combinations(clusters, 2)
 
         # calculate the similarity for each pair in p
@@ -60,14 +67,23 @@ def HAC(vectors, threshold):
 
         # Get the highest similarity to determine which pair shall be merged
         max_sim = max(scores, key=operator.itemgetter(1))
-
+	#print max_sim
         # break if the highest similarity is below the threshold
         if(max_sim[1] < threshold):
             break
+	
+	if(len(clusters) <= 10):
+		print len(clusters)
+		print pairs	
+		#print clusters
+		max_sims.append(max_sim[1])
 
         # Remove the pair to be merged
         pair = max_sim[0]
-        clusters -= set(pair)
+	if(len(clusters) <= 10):
+		print pair       
+
+	clusters -= set(pair)
 
         # Flatten the pair
         flat_pair = reduce(lambda x,y: x + y, pair)
@@ -86,15 +102,17 @@ def HAC(vectors, threshold):
         # increment label
         j += 1
 
-    return labels
+    return labels, max_sims
 
 filename = "data-2.txt"
 
 data = get_data(filename)
 
-labels = HAC(data, 2)
+labels, heights = HAC(data, 2)
 
 print labels
+
+print heights
 
 #ks = []
 #mins = []
