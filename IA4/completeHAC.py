@@ -31,7 +31,7 @@ def get_data(filename):
 
 	return data
 
-def HAC(vectors, threshold, single):
+def completeHAC(vectors, threshold, single):
     def similarity(pair):
         #calculate the similarity between the pair
         a = np.array([vectors[i] for i in pair[0]])
@@ -72,14 +72,16 @@ def HAC(vectors, threshold, single):
 	
 	if(len(clusters) <= 10):
 		print len(clusters)
-		print pairs	
+                print ",,,,,,,"
+		print pairs
+                print ",,,,,,,"
 		#print clusters
 		max_sims.append(max_sim[1])
 
         # Remove the pair to be merged
         pair = max_sim[0]
 	if(len(clusters) <= 10):
-		print pair       
+		print pair
 
 	clusters -= set(pair)
 
@@ -106,8 +108,8 @@ filename = "data-2.txt"
 
 data = get_data(filename)
 
-#labels, heights = HAC(data, 2, True)
-labels, heights = HAC(data, 2, False)
+labels, heights = completeHAC(data, 2, True)
+#labels, heights = completeHAC(data, 2, False)
 
 print labels
 
